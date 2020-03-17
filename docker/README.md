@@ -10,9 +10,11 @@ You can also check the [Docker command line reference](https://docs.docker.com/e
 
 ## Exercises
 
-1. Generate a new Angular project called `web-ui` on your machine. Hint: Have a look at the Angular docs to find out how to generate a new Angular project.
+1. Generate a new Angular project called `web-ui` on your machine. Hint: Have a look at the Angular docs to find out how to generate a new Angular project.  
+**Solution:** Run the command `ng new web-ui`.
 
-2. Create a new `.dockerignore` file in the `web-ui` directory to tell Docker to ignore the `node_modules` directory when building images.
+2. Create a new `.dockerignore` file in the `web-ui` directory to tell Docker to ignore the `node_modules` directory when building images.  
+**Solution:** See the `.dockerignore` file in the `web-ui` directory.
 
 3. Create a new `Dockerfile` in the `web-ui` folder. The Dockerfile should be split into two layers:
 
@@ -28,16 +30,22 @@ You can also check the [Docker command line reference](https://docs.docker.com/e
     2. In the second layer:
         
         - Use the latest version of [`nginx`](https://hub.docker.com/_/nginx) as a base image;
-        - Copy the contents of the `./dist` folder from the previous layer to the `/usr/share/nginx/html` directory in the current layer. Hint: the `--from` option allows you to select a stage (layer) from which files must be copied.
+        - Copy the contents of the `./dist` folder from the previous layer to the `/usr/share/nginx/html` directory in the current layer. Hint: the `--from` option allows you to select a stage (layer) from which files must be copied. 
 
-4. Try to build a new image with the `Dockerfile` you just created.
+**Solution:** See the `Dockerfile` file in the `web-ui` folder.
 
-5. Run your image in a new container connected to port `80` on your machine.
+4. Try to build a new image with the `Dockerfile` you just created.  
+**Solution:** Run the command `docker build -t web-ui:latest .` from inside the `web-ui` folder.
+
+5. Run your image in a new container connected to port `80` on your machine.  
+**Solution:** Run `docker run -p 80:80 --name=webui web-ui:latest`.
 
 6. Once you've completed all the steps above, go to [`http://localhost:80/`](http://localhost:80/). You should see the following page:
 
 ![Result on http://localhost:80/](./result.png)
 
-7. Stop the container you started at step 5.
+7. Stop the container you started at step 5.  
+**Solution:** Run `docker kill webui`.
 
-8. Delete the image you've created at step 4 from your machine.
+8. Delete the image you've created at step 4 from your machine.  
+**Solution:** First execute `docker rm webui` to delete the container you started earlier, then `docker rmi web-ui:latest` to delete the image.
