@@ -1,4 +1,4 @@
-# Docker Tutorial
+# Docker
 
 ## Introduction
 
