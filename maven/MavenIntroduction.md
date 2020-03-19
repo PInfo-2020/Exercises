@@ -6,8 +6,6 @@
 
 An excellent introduction to Maven can be found on the project's [official website](https://maven.apache.org/guides/getting-started/index.html). It is advised that you read this introduction to familiarise yourselves with the technology, as you will use it throughout the entire semester for your own projects.
 
----
-
 ## An autopsy of the [microservices](https://github.com/hostettler/microservices) Project Object Model
 
 A central aspect of Maven is the notion of *Project Object Model* (POM). The POM is an xml file (named *pom.xml*) that contains all of the information necessary for Maven to produce the artifacts for a project: it's a configuration file that indicates to Maven what plugins and packages it needs to download to build the project, as well as the commands it must execute to build its targets.
