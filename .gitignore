@@ -3,3 +3,6 @@
 
 # Docker specific.
 *docker.key
+
+# Targets.
+*target/
